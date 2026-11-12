@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meridian Studio</title>
+<!-- A made-up studio site, only used as the backdrop for the listing screenshots (tests/screenshots.py). -->
+<style>
+  :root { --ink: #14142B; --cream: #FFF7EC; --coral: #FF6B5E; --saffron: #FFB627; --teal: #1FA6A0; --indigo: #3D3BF3; --plum: #6D2E8C; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--cream); color: var(--ink); font: 15px/1.5 "Segoe UI", system-ui, sans-serif; overflow: hidden; }
+  nav { display: flex; align-items: center; gap: 22px; padding: 16px 36px; font-size: 13.5px; }
+  nav .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 16px; margin-right: auto; letter-spacing: -.01em; }
+  nav .logo i { width: 16px; height: 16px; border-radius: 4px; background: var(--coral); transform: rotate(45deg); }
+  nav a { color: inherit; text-decoration: none; opacity: .8; }
+  nav .cta { opacity: 1; padding: 7px 14px; border-radius: 999px; background: var(--ink); color: var(--cream); font-weight: 600; }
+  main { display: grid; grid-template-columns: 1.02fr 1fr; gap: 26px; padding: 14px 36px 0; align-items: center; }
+  .tag { display: inline-block; padding: 3px 10px; border-radius: 999px; background: #FFE3B8; color: #8A4B00; font-size: 12px; font-weight: 700; }
+  h1 { margin: 12px 0 10px; font-size: 40px; line-height: 1.06; letter-spacing: -.03em; }
+  h1 em { font-style: normal; color: var(--indigo); }
+  p.lead { margin: 0 0 18px; max-width: 34ch; opacity: .78; }
+  .btns { display: flex; gap: 10px; }
+  .btn { padding: 9px 16px; border-radius: 10px; font-weight: 650; font-size: 13.5px; }
+  .btn.a { background: var(--indigo); color: #fff; }
+  .btn.b { background: transparent; box-shadow: inset 0 0 0 1.5px var(--ink); }
+  .art { position: relative; height: 270px; border-radius: 22px; overflow: hidden; background: var(--ink); }
+  .art .sun { position: absolute; left: 34px; top: 30px; width: 150px; height: 150px; border-radius: 50%; background: var(--saffron); }
+  .art .wave { position: absolute; left: -30px; right: -30px; bottom: -70px; height: 190px; border-radius: 50% 50% 0 0; background: var(--teal); }
+  .art .hill { position: absolute; right: -40px; bottom: -40px; width: 260px; height: 210px; border-radius: 50% 50% 0 0; background: var(--coral); }
+  .art .bar { position: absolute; right: 44px; top: 34px; width: 54px; height: 120px; border-radius: 14px; background: var(--indigo); }
+  .art .dot { position: absolute; right: 122px; top: 52px; width: 40px; height: 40px; border-radius: 50%; background: var(--plum); }
+  .palette { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; padding: 22px 36px 0; }
+  .sw { border-radius: 14px; background: #fff; padding: 8px; box-shadow: 0 1px 0 rgba(20, 20, 43, .08), 0 8px 22px rgba(20, 20, 43, .06); }
+  .sw b { display: block; height: 44px; border-radius: 9px; }
+  .sw span { display: block; margin-top: 6px; font-size: 11.5px; font-weight: 700; }
+  .sw small { display: block; font: 11px ui-monospace, Consolas, monospace; opacity: .6; }
+</style>
+</head>
+<body>
+  <nav>
+    <span class="logo"><i></i> Meridian</span>
+    <a class="cta" href="#">Get in touch</a>
+  </nav>
+  <main>
+    <div>
+      <span class="tag">Brand systems, 2026</span>
+      <h1>Color that <em>carries</em> the story.</h1>
+      <p class="lead">We build identities for people who make things: palettes, type and motion that stay recognisable anywhere.</p>
+      <div class="btns"><span class="btn a">See the work</span><span class="btn b">Our process</span></div>
+    </div>
+    <div class="art" id="art"><div class="sun" id="sun"></div><div class="bar"></div><div class="dot"></div><div class="wave"></div><div class="hill" id="hill"></div></div>
+  </main>
+  <div class="palette">
+    <div class="sw"><b style="background:#FF6B5E"></b><span>Coral</span><small>#FF6B5E</small></div>
+    <div class="sw"><b style="background:#FFB627"></b><span>Saffron</span><small>#FFB627</small></div>
+    <div class="sw"><b style="background:#1FA6A0"></b><span>Lagoon</span><small>#1FA6A0</small></div>
+    <div class="sw"><b style="background:#3D3BF3"></b><span>Ultramarine</span><small>#3D3BF3</small></div>
+    <div class="sw"><b style="background:#6D2E8C"></b><span>Plum</span><small>#6D2E8C</small></div>
+    <div class="sw"><b style="background:#14142B"></b><span>Ink</span><small>#14142B</small></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Pipette: Color Picker & Eyedropper",
+  "short_name": "Pipette",
+  "version": "0.1.0",
+  "description": "Pick any color on a page with a zoomed loupe. Copy HEX, RGB or HSL, keep a history, check WCAG contrast. Free, no ads, no tracking.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "pipette-color-picker@c4rcer",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": { "required": ["none"] }
+    }
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "background": {
+    "scripts": ["shared/color.js", "background.js"]
+  },
+  "commands": {
+    "pick-color": {
+      "suggested_key": { "default": "Alt+Shift+C" },
+      "description": "Pick a color from the current page"
+    }
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Pipette: pick a color",
+    "default_area": "navbar",
+    "default_icon": { "48": "icons/icon.svg", "96": "icons/icon.svg" }
+  },
+  "options_ui": { "page": "options/options.html", "open_in_tab": true },
+  "icons": { "48": "icons/icon.svg", "96": "icons/icon.svg" }
+}

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipette</title>
+  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="../shared/support.css">
+</head>
+<body>
+  <header>
+    <span class="brand"><img src="../icons/icon.svg" alt="" width="18" height="18"> Pipette</span>
+    <a class="support-pill" data-support title="Free forever, no ads, no tracking. Tips keep it maintained."><span class="heart">&#x2665;</span> Support</a>
+    <button id="btnOptions" class="icon-btn" title="Settings" aria-label="Settings">&#x2699;</button>
+  </header>
+  <main>
+    <button id="pick" class="primary" type="button">
+      <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="currentColor" d="M20.7 5.6 18.4 3.3a1 1 0 0 0-1.4 0l-3.1 3.1-1.2-1.2a1 1 0 0 0-1.4 1.4l.7.7-7.4 7.4a2 2 0 0 0-.6 1.4V18l-1 1.6a.8.8 0 0 0 1.1 1.1L6 20h1.9a2 2 0 0 0 1.4-.6l7.4-7.4.7.7a1 1 0 0 0 1.4-1.4l-1.2-1.2 3.1-3.1a1 1 0 0 0 0-1.4ZM7.9 18H6v-1.9l7.4-7.4 1.9 1.9Z"/></svg>
+      <span>Pick a color from this page</span>
+      <kbd id="shortcut" hidden></kbd>
+    </button>
+    <p id="pickError" class="error" role="alert" hidden></p>
+
+    <div id="current" class="card" hidden>
+      <div id="bigSwatch" aria-hidden="true"></div>
+      <div class="values">
+        <button class="value" type="button" data-format="hex" title="Copy as HEX"><span class="k">HEX</span><span class="v"></span><span class="act">Copy</span></button>
+        <button class="value" type="button" data-format="rgb" title="Copy as RGB"><span class="k">RGB</span><span class="v"></span><span class="act">Copy</span></button>
+        <button class="value" type="button" data-format="hsl" title="Copy as HSL"><span class="k">HSL</span><span class="v"></span><span class="act">Copy</span></button>
+      </div>
+    </div>
+    <p id="empty" class="empty" hidden>No colors yet. Press the button above, then click anywhere on the page. The color is copied right away.</p>
+
+    <div class="row">
+      <span class="row-label" id="formatLabel">Picks are copied as</span>
+      <div class="seg" id="format" role="radiogroup" aria-labelledby="formatLabel">
+        <button type="button" role="radio" data-format="hex">HEX</button>
+        <button type="button" role="radio" data-format="rgb">RGB</button>
+        <button type="button" role="radio" data-format="hsl">HSL</button>
+      </div>
+    </div>
+
+    <section id="historySection" hidden>
+      <div class="section-head">
+        <h2>History</h2>
+        <button id="clear" class="link-btn" type="button">Clear</button>
+      </div>
+      <div id="history" class="swatches"></div>
+    </section>
+
+    <section id="contrastSection" hidden>
+      <div class="section-head">
+        <h2>Contrast check <span id="contrastMode"></span></h2>
+        <button id="contrastReset" class="link-btn" type="button" hidden>Follow latest picks</button>
+      </div>
+      <div class="slots">
+        <button id="slotFg" class="slot" type="button" title="Use the selected color as the text color">
+          <span class="chip"></span><span class="slot-text"><span class="slot-name">Text</span><span class="slot-hex"></span></span>
+        </button>
+        <button id="swap" class="icon-btn" type="button" title="Swap text and background" aria-label="Swap text and background">&#x21C4;</button>
+        <button id="slotBg" class="slot" type="button" title="Use the selected color as the background color">
+          <span class="chip"></span><span class="slot-text"><span class="slot-name">Background</span><span class="slot-hex"></span></span>
+        </button>
+      </div>
+      <div id="sample" aria-hidden="true"><span class="big">Large text</span><span class="small">and normal text</span></div>
+      <div class="result">
+        <span id="ratio"></span>
+        <span class="badges" id="badges"></span>
+      </div>
+      <p class="muted" id="contrastHint"></p>
+    </section>
+
+    <div id="supportCard" hidden></div>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="../shared/color.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

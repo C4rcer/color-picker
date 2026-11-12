@@ -1,0 +1,20 @@
+/* Options page. Colors and the support pill come from popup.css / support.css. */
+body.options { width: auto; min-height: 100vh; font-size: 14px; }
+.page { max-width: 640px; margin: 0 auto; padding: 28px 20px 48px; display: flex; flex-direction: column; gap: 14px; }
+h1 { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; font-size: 22px; }
+.card-block { gap: 8px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg2); }
+.card-block h2 { font-size: 12px; margin-bottom: 2px; }
+.card-block p { margin: 0; }
+.card-block .muted { font-size: 13px; }
+.card-block .support-pill { align-self: flex-start; }
+.choices { display: flex; flex-direction: column; gap: 6px; margin: 4px 0; }
+.choice { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 9px; background: var(--bg); cursor: pointer; }
+.choice:has(input:checked) { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.choice input, .check input { accent-color: var(--accent); margin: 0; }
+.choice-name { width: 40px; font-weight: 700; }
+.choice-eg { color: var(--muted); font-size: 13px; }
+.check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+kbd { display: inline-block; padding: 2px 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); font-size: 12.5px; font-weight: 600; }
+.plain-btn { align-self: flex-start; padding: 6px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--fg); cursor: pointer; }
+.plain-btn:hover { border-color: var(--accent); }
+.plain-btn:disabled { opacity: .55; cursor: default; }

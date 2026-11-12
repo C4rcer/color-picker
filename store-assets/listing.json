@@ -1,0 +1,23 @@
+{
+  "slug": "pipette-color-picker",
+  "name": "Pipette: Color Picker & Eyedropper",
+  "summary": "Pick any color on a web page with a zoomed, pixel-exact loupe and copy it as HEX, RGB or HSL in one click. Keeps a history of your colors and checks WCAG contrast. No access to your sites until you click. Free, no ads, no tracking.",
+  "description": "Pipette is an eyedropper for Firefox: point at anything on a page, see it magnified pixel by pixel, click, and the color is on your clipboard.\n\n**Pick**\n- A zoomed loupe follows your cursor and shows the exact pixel you are about to pick\n- Pixel-exact on high-DPI screens, at any page zoom, on scrolled pages and inside embedded frames\n- Click to copy. Shift+click to keep picking several colors in a row\n- Arrow keys move one screen pixel at a time (ten with Shift), Enter picks, Esc cancels\n- Start from the toolbar button or with a keyboard shortcut (Alt+Shift+C; you can change it in Firefox's \"Manage Extension Shortcuts\")\n\n**Copy**\n- HEX, RGB or HSL: you choose which one a click copies, and the popup always offers all three\n- A clear \"Copied\" confirmation right where you clicked\n- Optional lower-case HEX\n\n**Keep and compare**\n- Your last 30 colors stay in the popup. Click one to copy it again\n- WCAG contrast check between two picked colors: the ratio, pass or fail for AA and AAA at normal and large text sizes, and a live text sample\n\n**Free, for real**\nEvery feature is unlocked for everyone. No ads, no account, no analytics. Your colors and settings stay in your browser.\n\nIf Pipette saves you time and you'd like to say thanks, there's a Ko-fi link in the popup. It's entirely optional and unlocks nothing.\n\n**Permissions**\nPipette asks for no access to your websites when you install it. It gets to look at a page only at the moment you press its button or shortcut there. It then takes a picture of the part of the page you can see, reads colors from it, and throws it away when you are done. Nothing is saved or sent anywhere.\n\n**Good to know**\n- Firefox doesn't let add-ons work on its own pages (about: pages, addons.mozilla.org, the built-in PDF viewer), so Pipette can't pick there\n- Colors come from a still picture of the page that is retaken whenever you scroll, zoom or resize. On a playing video or an animation you get the frame that was showing when the picture was taken\n- Desktop Firefox only for now. Firefox for Android has no keyboard shortcuts for add-ons and no mouse pointer for the loupe to follow, so it needs its own design",
+  "categories": {
+    "firefox": [
+      "web-development"
+    ]
+  },
+  "compatibility": [
+    "firefox"
+  ],
+  "license": "MPL-2.0",
+  "homepage": "",
+  "support_url": "",
+  "contributions_url": "https://ko-fi.com/carcer7378",
+  "screenshot_captions": {
+    "1-loupe.png": "Point at any pixel: the loupe shows exactly what you are about to pick",
+    "2-popup.png": "Copy as HEX, RGB or HSL, and get back to any recent color",
+    "3-contrast.png": "Check WCAG contrast between two picked colors, and choose what a click copies"
+  }
+}

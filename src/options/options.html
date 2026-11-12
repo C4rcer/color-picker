@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipette settings</title>
+  <link rel="stylesheet" href="../popup/popup.css">
+  <link rel="stylesheet" href="../shared/support.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body class="options">
+  <div class="page">
+    <h1><img src="../icons/icon.svg" alt="" width="28" height="28"> Pipette settings</h1>
+
+    <section class="card-block">
+      <h2 id="formatHead">Copy format</h2>
+      <p class="muted">What goes on the clipboard when you click a pixel, and what the loupe shows.</p>
+      <div class="choices" id="format" role="radiogroup" aria-labelledby="formatHead">
+        <label class="choice"><input type="radio" name="format" value="hex"><span class="choice-name">HEX</span><span class="choice-eg mono" data-eg="hex"></span></label>
+        <label class="choice"><input type="radio" name="format" value="rgb"><span class="choice-name">RGB</span><span class="choice-eg mono" data-eg="rgb"></span></label>
+        <label class="choice"><input type="radio" name="format" value="hsl"><span class="choice-name">HSL</span><span class="choice-eg mono" data-eg="hsl"></span></label>
+      </div>
+      <label class="check"><input type="checkbox" id="lowercase"> Lower-case HEX <span class="muted mono" id="lowerEg"></span></label>
+      <p class="muted">The popup always offers all three, whatever you choose here.</p>
+    </section>
+
+    <section class="card-block">
+      <h2>Keyboard shortcut</h2>
+      <p>Start picking on the current page: <kbd id="shortcut">not set</kbd></p>
+      <p class="muted">While picking: click copies the color, Shift+click keeps picking, the arrow keys move one screen pixel (ten with Shift), Enter picks, Esc or a right-click cancels.</p>
+      <p class="muted">To change the shortcut, open Firefox's Add-ons and themes page (Ctrl+Shift+A), click the gear at the top and choose "Manage Extension Shortcuts".</p>
+    </section>
+
+    <section class="card-block">
+      <h2>History</h2>
+      <p><span id="count">0</span> <span id="countWord">colors</span> saved on this device. The newest 30 are kept.</p>
+      <button id="clear" class="plain-btn" type="button">Clear history</button>
+    </section>
+
+    <section class="card-block">
+      <h2>Privacy</h2>
+      <p class="muted">Pipette looks at a page only after you press its button or shortcut there, and only at the part you can see. The picture it reads colors from stays in Firefox's memory until you finish picking; it is never saved or sent anywhere. Your colors and settings are stored on this device. No ads, no analytics, no account.</p>
+    </section>
+
+    <section class="card-block">
+      <h2>Support</h2>
+      <p>Pipette is free, has no ads and collects no data. If it saves you time, a tip on Ko-fi keeps it maintained.</p>
+      <a class="support-pill" data-support><span class="heart">&#x2665;</span> Support on Ko-fi</a>
+    </section>
+  </div>
+  <script src="../shared/color.js"></script>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

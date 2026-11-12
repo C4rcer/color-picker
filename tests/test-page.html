@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pipette test page</title>
+<!--
+  Every colored thing on this page has a known color at a known place, so the
+  E2E can point at it and check the picker returns exactly that color.
+  ?csp=1 is served with a strict Content-Security-Policy (see e2e_firefox.py);
+  the nonce lets this page's own style and script through, nothing else.
+  ?blockcopy=1 swallows copy events like some sites do.
+-->
+<style nonce="pipette-test">
+  html, body { margin: 0; padding: 0; background: #FFFFFF; }
+  body { width: 3000px; height: 4200px; position: relative; font: 14px system-ui, sans-serif; color: #222; }
+  .block { position: absolute; width: 120px; height: 120px; }
+  #b1 { left: 40px; top: 40px; background: #3B82F6; }
+  #b2 { left: 160px; top: 40px; background: #10B981; }
+  #b3 { left: 280px; top: 40px; background: #F59E0B; }
+  #b4 { left: 400px; top: 40px; background: #123456; }
+  #b5 { left: 520px; top: 40px; background: #000000; }
+  /* far down and far right, only reachable by scrolling */
+  #deep { left: 40px; top: 1800px; background: #D946EF; }
+  #deeper { left: 200px; top: 3600px; background: #0EA5E9; }
+  #far { left: 2400px; top: 40px; background: #84CC16; }
+  #corner { left: 2500px; top: 3700px; background: #7C2D12; }
+
+  /* 1 CSS px stripes: column i (and row i) has color STRIPES[i % 4] */
+  .stripes { position: absolute; display: flex; }
+  #hs { left: 40px; top: 200px; flex-direction: row; height: 40px; }
+  #vs { left: 40px; top: 260px; flex-direction: column; width: 40px; }
+  #hs > i { display: block; width: 1px; height: 100%; flex: none; }
+  #vs > i { display: block; height: 1px; width: 100%; flex: none; }
+
+  #fixed { position: fixed; right: 30px; bottom: 30px; width: 80px; height: 80px; background: #0E7C86; }
+  #scroller { position: absolute; left: 700px; top: 40px; width: 200px; height: 160px; overflow: auto; background: #EEEEEE; }
+  #scroller .in { height: 900px; position: relative; }
+  #scroller .a { position: absolute; left: 0; top: 0; width: 180px; height: 300px; background: #AA3377; }
+  #scroller .b { position: absolute; left: 0; top: 500px; width: 180px; height: 400px; background: #228833; }
+  #frame { position: absolute; left: 40px; top: 420px; width: 300px; height: 150px; border: 0; }
+  #hoverbox { position: absolute; left: 400px; top: 420px; width: 120px; height: 120px; background: #4477AA; }
+  #hoverbox:hover { background: #EE6677; }
+  #paste { position: absolute; left: 960px; top: 40px; width: 220px; height: 60px; }
+  #clicks { position: absolute; left: 960px; top: 120px; }
+</style>
+</head>
+<body>
+  <div class="block" id="b1"></div>
+  <div class="block" id="b2"></div>
+  <div class="block" id="b3"></div>
+  <div class="block" id="b4"></div>
+  <div class="block" id="b5"></div>
+  <div class="stripes" id="hs"></div>
+  <div class="stripes" id="vs"></div>
+  <iframe id="frame" title="frame"></iframe>
+  <div id="hoverbox"></div>
+  <div id="scroller"><div class="in"><div class="a"></div><div class="b"></div></div></div>
+  <textarea id="paste"></textarea>
+  <button id="clicks" type="button">page button</button>
+  <div class="block" id="deep"></div>
+  <div class="block" id="deeper"></div>
+  <div class="block" id="far"></div>
+  <div class="block" id="corner"></div>
+  <div id="fixed"></div>
+
+<script nonce="pipette-test">
+  window.STRIPES = ["#FF0000", "#00FF00", "#0000FF", "#FFFFFF"];
+  for (const id of ["hs", "vs"]) {
+    const box = document.getElementById(id);
+    for (let i = 0; i < 64; i++) {
+      const s = document.createElement("i");
+      s.style.background = window.STRIPES[i % 4];
+      box.append(s);
+    }
+  }
+  // The frame is another origin (same server, other host name), like an embedded video or ad.
+  const otherHost = location.hostname === "localhost" ? "127.0.0.1" : "localhost";
+  document.getElementById("frame").src = location.protocol + "//" + otherHost + ":" + location.port + "/frame.html";
+  // The page must not notice the picker: count what leaks through.
+  window.pageEvents = { click: 0, mousedown: 0, mousemove: 0, keydown: 0 };
+  for (const type of Object.keys(window.pageEvents)) {
+    document.addEventListener(type, () => { window.pageEvents[type]++; });
+  }
+  if (new URLSearchParams(location.search).has("blockcopy")) {
+    window.addEventListener("copy", (e) => { e.stopImmediatePropagation(); e.preventDefault(); }, true);
+  }
+</script>
+</body>
+</html>
