@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Pipette: Color Picker & Eyedropper",
   "short_name": "Pipette",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Pick any color on a page with a zoomed loupe. Copy HEX, RGB or HSL, keep a history, check WCAG contrast. Free, no ads, no tracking.",
   "browser_specific_settings": {
     "gecko": {

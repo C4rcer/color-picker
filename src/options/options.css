@@ -18,3 +18,5 @@ kbd { display: inline-block; padding: 2px 8px; border: 1px solid var(--border); 
 .plain-btn { align-self: flex-start; padding: 6px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--fg); cursor: pointer; }
 .plain-btn:hover { border-color: var(--accent); }
 .plain-btn:disabled { opacity: .55; cursor: default; }
+/* More free add-ons: the card is a flex column, so keep the see-all link to its own width. */
+.card-block .more-all { align-self: flex-start; margin-top: 0; }

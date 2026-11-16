@@ -1,4 +1,5 @@
 import { wireSupportLinks } from "../shared/support.js";
+import { renderMoreAddons } from "../shared/more-addons.js";
 
 const Color = globalThis.PipetteColor;
 const $ = (id) => document.getElementById(id);
@@ -26,6 +27,7 @@ function save(patch) {
 }
 
 wireSupportLinks();
+renderMoreAddons(document.getElementById("moreAddons")).catch(() => {});
 
 $("format").addEventListener("change", (e) => {
   if (e.target.name === "format" && Color.FORMATS.includes(e.target.value)) save({ format: e.target.value });
