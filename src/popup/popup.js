@@ -264,4 +264,4 @@ browser.commands.getAll().then((all) => {
 
 load().then(() =>
   maybeShowMilestone($("supportCard"), state.stats.picks, [50, 500], (m) =>
-    `You've picked ${m} colors with Pipette. It's free and ad-free; if it saves you time, a coffee keeps it maintained.`));
+    `You've picked ${m} colors with Pipette.`));

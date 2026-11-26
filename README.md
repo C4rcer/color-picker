@@ -110,7 +110,7 @@ src/                       everything that ships
   popup/                   toolbar popup: pick button, formats, history, contrast
   options/                 copy format, shortcut help, history, support
   shared/color.js          hex/rgb/hsl and WCAG maths (classic script, used everywhere)
-  shared/support.*         Ko-fi pill + one-time milestone card (from the template)
+  shared/support.*         Ko-fi pill + one-time milestone card: a rating ask first, tips later (from the template)
   shared/more-addons.*     "More free add-ons" card + rate link (same file in every add-on; set `live: true` as listings are approved)
 store-assets/listing.json  AMO listing text, category, Ko-fi contributions_url
 store-assets/screenshots/  1280x800 listing images (made by tests/screenshots.py)
